@@ -4,23 +4,17 @@ Este documento contém tudo que você precisa saber para começar a usar o Git c
 
 # Sumário
 
-<ol>
-
-```
-<li><a href="#content0">O que é Controle de Versão?</a>;</li>
-<li><a href="#content1">Instalando Git Bash</a>;</li>
-<li><a href="#content2">Acessando o GitLab</a>;</li>
-<li><a href="#content3">Criando um projeto</a>;</li>
-<li><a href="#content4">Clonando um projeto</a>;</li>
-<li><a href="#content5">Como usar Issues</a>;</li>
-<li><a href="#content6">Tipos de organização de trabalho</a>;</li>
-<li><a href="#content7">Gitflow</a>;</li>
-<li><a href="#content8">Trunk based development</a>;</li>
-<li><a href="#content9">Subindo Alterações</a>;</li>
-<li><a href="#content10">Gerenciamento de Conflitos</a>;</li>
-```
-
-</ol>
+1. <a href="#content0">O que é Controle de Versão?</a>;
+2. <a href="#content1">Instalando Git Bash</a>;
+3. <a href="#content2">Acessando o GitLab</a>;
+4. <a href="#content3">Criando um projeto</a>;
+5. [Clonando um projeto](#content4);
+6. <a href="#content5">Como usar Issues</a>;
+7. <a href="#content6">Tipos de organização de trabalho</a>;
+8. <a href="#content7">Gitflow</a>;
+9. <a href="#content8">Trunk based development</a>;
+10. <a href="#content9">Subindo Alterações</a>;
+11. <a href="#content10">Gerenciamento de Conflitos</a>;
 
 # Conteúdo
 
@@ -130,7 +124,7 @@ Se preferir usar outro gerenciador de pacotes, digite a seguinte linha:
 $ yarn install
 ```
 
-<h3>Como usar issues<a name="content5"></a></h3>
+### Como usar issues<a name="content5"></a>
 
 (EM CONSTRUÇÃO)
 
@@ -189,37 +183,19 @@ Exemplos:
 
 Exemplos:
 
-<ol>
+1. Criar lógica de diálogo: ``#dialogue-logic``;
+2. Criar lógica de filtros: ``#filter-logic``;
+3. Criar lógica de pesquisa: ``#search-logic``
 
-```
-<li>Criar lógica de diálogo: <code>#dialogue-logic</code>;</li>
-<li>Criar lógica de filtros: <code>#filter-logic</code>;</li>
-<li>Criar lógica de pesquisa: <code>#search-logic</code>.</li>
-```
+- __Desenvolver API ou parte dela:__ o nome da API e suas especificações.
 
-</ol>
+Exemplos:
 
-<ul>
+1. Desenvolver API de login: ``#login-API``;
+2. Desenvolver API de pagamento: ``#payment-API``;
+3. Desenvolver API de controles de usuário: ``#user-controllers-API``.
 
-```
-<li><b>Desenvolver API ou parte dela: o nome da API e suas especificações.</b></li>
-```
-
-</ul>
-
-<p>Exemplos:</p>
-
-<ol>
-
-```
-<li>Desenvolver API de login: <code>#login-API</code>;</li>
-<li>Desenvolver API de pagamento: <code>#payment-API</code>;</li>
-<li>Desenvolver API de controles de usuário: <code>#user-controllers-API</code>.</li>
-```
-
-</ol>
-
-<p>Demais casos, devem seguir padrões similares.</p>
+Demais casos, devem seguir padrões similares.
 
 <img alt="gitflow" src="https://uploads.toptal.io/blog/image/129305/toptal-blog-image-1551794424851-b3d5928bc33edfc954ef460062e5cbcc.png">
 
@@ -231,23 +207,17 @@ Merge é o processo responsável por unificar branchs criadas em uma única para
 
 Para solicitar um ``merge request`` siga os passos a seguir:
 
-<ol>
+1. Após o <code>git push</code>, vá até a GitLab e localize no repositório na parte superior um botão para solicitação de merge (Ele aparecerá junto ao um aviso de commit realizado)</li>
+2. Verifique se todas as alterações que você fez estão em conformidade com o que vc deseja</li>
+3. Selecione a branch <code>develop</code> para receber as alterações da branch <code>feature/</code></li>
+4. Em <i></i>, selecione o master para valiar o <code>merge request</code></li>
+5. E como boa prática, envie uma mensagem de lembrete ao master para ele verificar o repositório
 
-```
-<li>Após o <code>git push</code>, vá até a GitLab e localize no repositório na parte superior um botão para solicitação de merge (Ele aparecerá junto ao um aviso de commit realizado)</li>
-<li>Verifique se todas as alterações que você fez estão em conformidade com o que vc deseja</li>
-<li>Selecione a branch <code>develop</code> para receber as alterações da branch <code>feature/</code></li>
-<li>Em <i></i>, selecione o master para valiar o <code>merge request</code></li>
-<li>E como boa prática, envie uma mensagem de lembrete ao master para ele verificar o repositório</li>
-```
+Há também a possibilidade de merge via terminal.
 
-</ol>
+##### Para desenvolvedores _masters_
 
-<p>Há também a possibilidade de merge via terminal.</p>
-
-<h5>Para desenvolvedores <i>masters</i></h5>
-
-<p>Volte para a branch develop com o seguinte comando:</p>
+Volte para a branch develop com o seguinte comando:
 
 ```shell
 $ git checkout develop

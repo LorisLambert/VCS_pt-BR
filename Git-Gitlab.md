@@ -4,21 +4,22 @@ Este documento contém tudo que você precisa saber para começar a usar o Git c
 
 # Sumário
 
-1. <a href="#content0">O que é Controle de Versão?</a>;
-2. <a href="#content1">Instalando Git Bash</a>;
-3. <a href="#content2">Acessando o GitLab</a>;
-4. <a href="#content3">Criando um projeto</a>;
-5. [Clonando um projeto](#content4);
-6. <a href="#content5">Como usar Issues</a>;
-7. <a href="#content6">Tipos de organização de trabalho</a>;
-8. <a href="#content7">Gitflow</a>;
-9. <a href="#content8">Trunk based development</a>;
-10. <a href="#content9">Subindo Alterações</a>;
-11. <a href="#content10">Gerenciamento de Conflitos</a>;
+1. [O que é Controle de Versão?](#content1);
+2. [Instalando e configurando o Git Bash](#content2);
+3. [Acessando o GitLab](#content3);
+4. [Projeto ou repositório: qual usar?](#content4);
+5. [Clonando um projeto ou repositório](#content5);
+6. [Criando um board](#content6);
+7. [Aplicando Metodologias Ágeis](#content7);
+8. [Como usar issues](#content8);
+9. [Gitflow](#content9);
+10. [Trunk based development](#content10);
+11. [Subindo Alterações](#content11);
+12. [Gerenciamento de Conflitos](#content12);
 
 # Conteúdo
 
-<h3>O que é Controle de Versão?<a name="content0"></a></h3>
+### O que é Controle de Versão?<a name="content1"></a>
 
 O controle de versão é a prática de rastrear e gerenciar as alterações em um código de software. Os sistemas de controle de versão são ferramentas de software que ajudam as equipes de software a gerenciar as alterações no código ao longo do tempo.
 
@@ -26,7 +27,7 @@ Usar o software de controle de versão é uma prática recomendada para software
 
 Neste documento usaremos o [Git](https://git-scm.com/doc) e para versionar todas as aplicações e o [GitLab](https://docs.gitlab.com/ee/) para guardar a aplicação na nuvem e ficar disponível a todos os membros da equipe. Com esta ferramenta é necessário criar um repositório local, que será na memória do seu computador pessoal e um repositório remoto na nuvem que será no GitLab.
 
-<h3>Instalando e configurando o Git Bash<a name="content1"></a></h3>
+### Instalando e configurando o Git Bash<a name="content2"></a>
 
 Esse programa será fundamental para o uso do repositório local da máquina e sua integração com a GitLab. 
 
@@ -72,11 +73,11 @@ $ apt update; apt install git
 
 Para outras distros, [clique aqui](https://git-scm.com/download/linux).
 
-<h3>Acessando GitLab<a name="content2"></a></h3>
+### Acessando GitLab<a name="content3"></a>
 
 (EM CONSTRUÇÃO)
 
-<h3>Criando um projeto<a name="content3"></a></h3>
+### Projeto ou repositório: qual usar?<a name="content4"></a>
 
 Todo repositório Git armazena as informações dentro de uma pasta oculta chamada /.git. Para que os arquivos de uma pasta possam ser versionados, é preciso iniciar o repositório. Para criar um repositório novo, você pode criar um no repositório remoto e clonar este para um repositório local em sua máquina, ou criar um repositório via terminal.
 
@@ -96,7 +97,7 @@ Via repositório remoto:
 2. Coloque o nome e descrição do repositório que você está criando e clicar em Create repository;
 3. Depois, aparecerá na tela: O repositório foi criado, só que ainda está vazio.
 
-<h3>Clonando um projeto<a name="content4"></a></h3>
+### Clonando um projeto ou repositório<a name="content5"></a>
 
 clonar repositórios, siga os seguintes passos:
 
@@ -123,16 +124,61 @@ Se preferir usar outro gerenciador de pacotes, digite a seguinte linha:
 ```shell
 $ yarn install
 ```
+### Criando um board<a name="content6"></a>
 
-### Como usar issues<a name="content5"></a>
+### Aplicando Metodologias Ágeis<a name="content7"></a>
 
+Para implementar uma Métodologia Ágil no seu board serão necessarios usar as labels e . As Labels servem para "linkar" as issues de modo a facilitar a localização, registro, acompanhamento e identificação das atividades realizadas.
+
+##### Orientações gerais:
+1. Não usar mais de uma Label de um mesmo grupo para classificar uma mesma issue
+2. Usar o máximo de grupos de labels possíveis para classificar uma mesma issue
+3. Usar recursos adicionais na descrição das issues como prints, documentos, checklist de itens a serem cumpridos e dados para consulta em banco para facilitar a compreensão e realização destas
+
+##### Workflow Label Group:
+* "Workflow: ready for development" Quando a issue está pronta para ser desenvolvida
+* "Workflow: in Dev" Quando a issue está em desenvolvimento
+* "Workflow: ieady for testing" Quando a issue está finalizada e pronta para ser testada
+* "Workflow: blocked" Quando a atividade está impedida por algum motivo
+
+**OBS:** Quando a issue for bloqueada ela deve conter um comentário justificando o bloqueio.
+
+##### Type Label Group:
+* "feature" Funcionalidade a ser implementada
+* "bug Bug" reportado pelo cliente
+* "enhancement" Melhoria
+* "documentation" Construção, melhoria, incremento de documentação
+* "QA: failed" Erros encontrados pela equipe de qualidade
+
+##### Priority Label Group:
+As Labels de prioridade nos ajudam a definir o tempo em que uma issue deve ser concluída. Se houver várias issues, as labels de prioridade orientam qual deve ser corrigido prioritariamente. Com isso é possível ter registro cronológico das atividades realizadas.
+* "P1" Prioridade 1 - Urgente - Arrumar tão logo seja possível, na release atual e com menos de 2 dias)
+* "P2" Prioridade 2 - Alta - Arrumar em até 5 dias)
+* "P3" Prioridade 3 - Média - Arrumar em até 10 dias)
+* "P4" Prioridade 4 - Baixa - Arrumar em até 30 dias)
+
+##### Specialization Label Group:
+As Labels de Specialization são par orientar que tipo de especialização a issue se refere.
+* "frontend" Issues que envolvem aspectos do frontend (crud, integração com API, estilo, etc)
+* "backend" Issues que envolvem aspectos do backend (API, etc)
+* "database" Issues que envolvem Banco de dados (dumps, busca por dados, etc)
+* "devops" Issues que envolvem devops (deploys automatizados, pipelines, etc)
+* "designer" Issues que envolvem designer (prototipação, UX/UI, usabilidade, etc)
+
+##### Enviroment Label Group:
+* "Testing" A issue deve ser analisada em ambiente de teste
+* "Homologation" A issue deve ser analisada em ambiente de homologação
+* "Production" A issue deve ser analisada em ambiente de produção
+
+##### Status Label Group:
+* "Canceled" Quando a issue é cancelada
+
+**OBS:** Quando a issue for cancelada ela deve conter um comentário justificando o cancelamento.
+
+### Como usar issues<a name="content8"></a>
 (EM CONSTRUÇÃO)
 
-<h3>Tipos de organização de trabalho<a name="content6"></a></h3>
-
-(EM CONSTRUÇÃO)
-
-<h3>Gitflow<a name="content7"></a></h3>
+### Gitflow<a name="content9"></a>
 
 É definido que toda aplicação deve possuir, por padrão, 2 branchs inicialmente:
 
@@ -235,13 +281,13 @@ $ git merge #nome-apropriado
 
 <p>(EM CONSTRUÇÃO)</p>
 
-<h3>Trunk based development<a name="content8"></a></h3>
+### Trunk based development<a name="content10"></a>
 
 <p>(EM CONSTRUÇÃO)</p>
 
 <img alt="gitflow" src="https://uploads.toptal.io/blog/image/129304/toptal-blog-image-1551794413174-f4139c4be533dc592d49f9a0bcc330f0.png">
 
-<h3>Subindo Alterações<a name="content9"></a></h3>
+### Subindo Alterações<a name="content11"></a>
 
 <p>Para subir as alterações via terminal, adicione as alterações que você fez ao seu repositório local com o seguinte comando:</p>
 
@@ -269,7 +315,7 @@ $ git push origin #feature/nome-apropriado
 
 <p>Existem vários outros comandos de terminal além dos utilizados aqui, para saber mais, leia a documentação do <a href='https://git-scm.com/doc'>Git</a>.</p>
 
-<h3>Gerenciamento de Conflitos<a name="content10"></a></h3>
+### Gerenciamento de Conflitos<a name="content12"></a>
 
 <p>No VScode é mostrado em cor diferente as linhas de conflito. Para solucioná-las, temos as seguintes opções:</p>
 
